@@ -1,0 +1,765 @@
+\documentclass[UTF8]{beamer}
+\usepackage{graphicx, color}
+\usepackage{zhspacing}
+\usetheme{JuanLesPins}
+\usepackage{fontspec}
+\setsansfont{微软雅黑}
+
+\usepackage{enumerate}
+
+\AtBeginSection[]{
+	\frame{
+		\frametitle{Next}
+		\tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
+	}
+}
+
+\title{R语言绘图基础}
+\subtitle{生物数据基本分析与可视化}
+\author{陈钢\\ chengang@bgitechsolutions.cn}
+\logo{\includegraphics[width=2cm]{bgi-logo.png}}
+\date{\today}
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}[t]\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{课程介绍}
+\subsection{基本情况}
+\begin{frame}[t]\frametitle{基本情况}
+    
+\begin{block}{概况} 
+本课程介绍如何使用R语言绘制常见的统计图形，具体内容包括R语言的基本知识，
+基本统计分析和相应的图形绘制，符合论文发表要求的统计
+图形输出，最后会简单介绍R语言绘图的一些高级知识供有兴趣的同学探索。
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{目标}
+\begin{block}{目标}
+在完成本课程学习后，学员将可以：
+\begin{itemize}
+\item 自行在各种平台上安装和使用R语言；
+\item 用R语言实现对各种常见数据的基本分析和绘图；
+\item 用R语言绘制符合论文发表要求的统计图形；
+\item 了解R语言的整体情况，可以根据自己的需求选择进一步学习的方向。
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\subsection{课程计划}
+\begin{frame}[t]\frametitle{课程计划}
+\begin{block}{课程安排}
+\scriptsize	
+\begin{enumerate}[课时 1. ]
+	\item R语言简介和系统安装
+	\item R语言基本语法
+	\item R语言基本统计分析与图形绘制
+	\item R语言输出符合论文发表要求的图形
+	\item R语言绘图实战
+	\item R语言绘图高级话题
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\subsection{讲师}
+\begin{frame}[t]\frametitle{陈钢}
+\begin{block}{教育背景}
+\begin{itemize}
+\item 中南大学计算机专业博士，2008.9 ~ 2012.6
+\item 德克萨斯大学医学部访问学者,2009.10 ~ 2010.10
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[t]\frametitle{陈钢}
+\begin{block}{科研}
+\begin{itemize}
+	\item 出版译著8本，包括《R语言实战》
+	\item 10篇生物信息方面的论文，在中国R语言会议等会议上作报告。
+\end{itemize}
+\end{block}
+
+\begin{block}{授课}
+\begin{itemize}
+	\item 2013年香港中文大学生物信息学硕士课程讲师
+	\item 2012年创新班R语言基础课程
+	\item \ldots \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\section{R语言简介和系统安装}
+
+\begin{frame}[t]\frametitle{R语言是什么？}
+\begin{block}{R}
+R是一个用于统计计算和图形的自由软件环境。
+
+R is a free software environment for statistical computing and graphics.
+
+----R-project.org
+\end{block}
+\end{frame}
+
+\subsection{生物数据分析与R}
+\begin{frame}[t]\frametitle{R与数据分析}
+\begin{itemize}
+\item 基本统计分析
+\item 多元统计分析
+\item 数据挖掘：分类、回归、聚类、推荐、关联规则
+\item 专业领域数据分析：社交网络、生命科学、行为分析、商业智能……
+\item 大数据分析：Hadoop、HANA、Bigmem
+\item 生物数据分析：Bioconductor
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{R语言与数据可视化}
+\begin{itemize}
+\item 基本图形系统：R软件中最基本的绘图系统，简单、易用，功能较弱，系统性不强，例如plot函数、hist函数等
+\item Lattic、grid、rgl等图形系统：由于R基本图形系统的不足，诞生了很多第三方的图形系统
+\item 王者归来：ggplot2！
+基于图形语法（ grammar of graphics），理论上可以画出所有的统计图形，而且语法简洁。但跟基本统计图形的使用有较大差异，有一定的学习难度。
+\item 自动文档：knitr
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t, fragile]\frametitle{生物数据}
+\begin{columns}
+\begin{column}{.5\textwidth}
+\begin{block}{你见过哪些生物数据？}
+\begin{itemize}
+	 \item 序列
+	 \item 表达
+	 \item 结构
+	 \item 相互作用
+	 \item 数据
+	 \item \ldots \ldots
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.5\textwidth}
+\begin{block}{R能处理吗?}
+\begin{itemize}
+	\item read.table(), scan()
+	\item Bioconductor
+	\item affy
+	\item rbamtools, Rsamtools
+	\item igraph, SNA
+	\item \ldots \ldots
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{历史和现状}
+\begin{frame}[t]\frametitle{R语言的历史}
+\begin{itemize}
+	\item 1997年4月1日，0.16，奥克兰大学的Ihaka和Gentleman发布了第一版本的R
+\item 1997年4月23日，0.49，CRAN网站发布，提供12个R的扩展包
+\item 1997年12月5日，0.60，R成文GNU项目的一部分
+\item 2000年2月29日，1.0，第一个可用于生产环境的版本发布
+\item 2010年4月22日，2.11，支持64位Windows操作系统
+\item 2011年10月31日，2.14，提供全新的并行计算包
+\item 2013年4月，3.0.0，最新版本的R
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{R语言在中国}
+\begin{itemize}
+\item 2004年，国内专业人员开始翻译R语言官方文档
+\item 2006年，国内开始出版R语言书籍
+\item 2008年，在北京中国人民大学召开第一届中国R语言会议
+\item 2009年-2012年，每年分别在北京和上海举办中国R语言会议，迄今已举办五届
+\item 2012年，国人开发的Knitr包几乎成为R语言文档自动化的新标准，同时大量R语言畅销书籍被引进到国内翻译出版。
+\item 2013年，《R语言实战》、《ggplot2》、《R in a nutshell》 \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{R语言的现状}
+\begin{itemize}
+\item 使用领域囊括统计分析、数据挖掘、生命科学、商业智能、数据可视化、社交网络分析、电子商务、集成电路、金融、烟草、传媒、咨询等
+\item 赞助R语言开发工作的机构包括AT\&T、默沙东、Google、新西兰电信，以及诸多大学及科研机构。
+\item 在商业产品中提供R语言支持的企业包括SAP、甲骨文、Teredata、IBM、Revolution、Matlab、SAS、SPSS等。
+\item 2012第五届中国R语言会议（上海会场）获得大量赞助，吸引了400多人注册，到会人员几乎涉及R所有应用领域的国内知名企业。
+\item 2013年第六届中国R语言会议（北京，5月；上海，11\~12月）。
+\end{itemize}
+\end{frame}
+
+\subsection{获取和安装}
+\begin{frame}\frametitle{下载}
+
+\centerline{\Huge{CRAN}}
+\centerline{演示}
+
+\end{frame}
+
+\begin{frame}[t]\frametitle{安装}
+\begin{block}{安装方式}
+\begin{itemize}
+	\item 二进制安装包（MacOS、Windows、Ubuntu、FC\ldots）
+	\item 源代码编译
+\end{itemize}
+\end{block}
+
+\begin{block}{RTools}
+专用于Windows平台，用于编译R本身及R扩展包的Windows版。
+\end{block}
+
+\centerline{演示}
+
+\end{frame}
+
+\subsection{开发环境设置}
+\begin{frame}[t]\frametitle{开发工具}
+\begin{block}{R开发工具}
+\begin{itemize}
+	\item R（演示）
+	\item Emacs + ESS(演示)
+	\item VIM + R-plugin
+	\item RStudio （演示）
+	\item \ldots \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{帮助信息和参考资料}
+\begin{frame}[t]\frametitle{帮助信息}
+\begin{block}{R内置帮助}
+\begin{itemize}
+\small	
+\item help.start()	打开帮助文档首页
+\item help("foo")或?foo	查看函数foo的帮助（引号可以省略）
+\item help.search("foo")或??foo	以foo为关键词搜索本地帮助文档
+\item example("foo")	函数foo的使用示例（引号可以省略）
+\item RSiteSearch("foo")	以foo为关键词搜索在线文档和邮件列表存档
+\item apropos("foo", mode="function")	列出名称中含有foo的所有可用函数
+\item data()	列出当前已加载包中所含的所有可用示例数据集
+\item vignette()	列出当前已安装包中所有可用的vignette文档
+\item vignette("foo")	为主题foo显示指定的vignette文档
+\item ??, ?
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[t]\frametitle{工作空间}
+\begin{itemize}
+\small
+\item getwd()	显示当前的工作目录
+\item setwd("mydirectory")	修改当前的工作目录为mydirectory
+\item ls()	列出当前工作空间中的对象
+\item rm(objectlist)	移除（删除）一个或多个对象
+\item help(options)	显示可用选项的说明
+\item options()	显示或设置当前选项
+\item history(\#)	显示最近使用过的\#个命令（默认值为25）
+\item savehistory("myfile")	保存命令历史到文件myfile中（默认值为 .Rhistory）
+\item loadhistory("myfile")	载入一个命令历史文件（默认值 为 .Rhistory）
+\item save.image("myfile")	保存工作空间到文件myfile中（默认值为 .RData）
+\item save(objectlist, file="myfile")	保存指定对象到一个文件中
+\item load("myfile")	读取一个工作空间到当前会话中（默认值为 .RData）
+\item q()	退出R。将会询问你是否保存工作空间
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{参考书籍}
+\begin{itemize}
+	\item R语言实战
+	\item R导论，R入门者指南
+	\item R in a Nutshell
+	\item The art of R programming
+\end{itemize}
+\end{frame}
+
+\section{R语言基本语法}
+
+\subsection{基本数据类型}
+\begin{frame}[t]\frametitle{数据类型}
+\begin{itemize}
+\item 向量VECTOR
+\item 矩阵MATRIX
+\item 数组ARRAY
+\item 数据框DATA FRAME
+\item 因子FACTOR
+\item 列表LIST
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{数据类型}
+\begin{block}{向量，矩阵，数组}
+\begin{itemize}
+\item 向量：1维
+\item 矩阵：2维
+\item 数组：N维
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{数据框}
+
+\end{frame}
+
+\begin{frame}\frametitle{函数}
+\begin{block}{语法}
+%%begin.rcode func
+%foo <- function(x, y){
+%
+%	return(x+y)
+%
+%}
+%%end.rcode
+\end{block}
+\end{frame}
+
+\subsection{基本命令}
+
+\begin{frame}[t]\frametitle{基本运算}
+\begin{itemize}
+	\item 四则运算
+	\item 幂
+	\item 矩阵运算
+	\item 集合操作
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[t]\frametitle{类型转换}
+\begin{itemize}
+	\item as.numeric
+	\item as.character
+	\item as.data.frame
+	\item as.complex
+	\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{条件语句}
+\begin{itemize}
+	\item if-else
+	\item switch
+\end{itemize}
+\end{frame}
+\subsubsection{条件语句}
+
+\begin{frame}[t]\frametitle{循环语句}
+\begin{itemize}
+	\item for
+	\item while
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{APPLY系列函数}
+\begin{itemize}
+	\item apply
+	\item tapply
+	\item sapply
+	\item lapply
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{面向对象}
+\begin{itemize}
+	\item S3
+	\item S4
+\end{itemize}
+\end{frame}
+
+\section{R语言基本统计分析与图形绘制}
+
+\subsection{散点图}
+
+\begin{frame}[t]\frametitle{plot}
+    
+%% begin.rcode scatterplot1, out.height='.8\\textheight',  out.width='.8\\textheight', echo=F, fig.align='center'
+%  x = rnorm(100)
+%
+%  y = rnorm(100)
+%
+% plot(x, y)
+%% end.rcode
+
+\end{frame}
+
+\begin{frame}[t]\frametitle{plot}
+    
+%% begin.rcode scatterplot2, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%  x = rnorm(100)
+%
+%  y = rnorm(100)
+%
+% plot(x, y)
+%% end.rcode
+
+\end{frame}
+
+
+\subsection{时间序列}
+
+
+\subsection{柱状图}
+\begin{frame}
+\frametitle{barplot}
+%% begin.rcode barplot1, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%
+% barplot(x[1:20])
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}
+\frametitle{barplot}
+%% begin.rcode barplot2, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%
+% barplot(x[1:20], width=2, horiz=T, col=rainbow(10))
+%
+%% end.rcode
+\end{frame}
+
+
+
+
+\subsection{饼图}
+\begin{frame}
+\frametitle{pie}
+%% begin.rcode pie1, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%
+% pie(c(10,10,10,20,30,20), c("Nature","Science","Cell","NG","Nature Cancer","Other"),col=2:7)
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}
+\frametitle{pie}
+%% begin.rcode pie2, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+% library(plotrix)
+%
+% pie3D(c(10,10,10,20,30,20), labels=c("Nature","Science","Cell","NG","Nature Cancer","Other"),col=2:7)
+%
+%% end.rcode
+\end{frame}
+
+\subsection{分类数据绘图}
+
+\begin{frame}
+	\frametitle{cdplot}
+
+%% begin.rcode, echo=F
+% 
+%fail <- factor(c(2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1,
+%                 1, 2, 1, 1, 1, 1, 1),
+%               levels = 1:2, labels = c("no", "yes"))
+%temperature <- c(53, 57, 58, 63, 66, 67, 67, 67, 68, 69, 70, 70,
+%                 70, 70, 72, 73, 75, 75, 76, 76, 78, 79, 81)
+%%% end.rcode
+
+%% begin.rcode cdplot, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%
+%cdplot(temperature, fail)
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}
+\frametitle{cdplot}
+%% begin.rcode cdplot1, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%
+%cdplot(temperature, fail, col=c("green", "red"))
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{mosaicplot}
+
+%% begin.rcode mosaicplot, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+% require(stats)
+%
+%mosaicplot(Titanic, main = "Survival on the Titanic", color = TRUE)
+%% end.rcode
+\end{frame}
+
+\subsection{绘制分布}
+
+\begin{frame}
+\frametitle{hist}
+%% begin.rcode hist, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+%
+% hist(rnorm(10000), col="lightblue")
+%% end.rcode
+\end{frame}
+
+\begin{frame}
+\frametitle{hist}
+%% begin.rcode hist2, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+%
+% hist(rnorm(10000), breaks=100)
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}
+\frametitle{density + rug}
+%% begin.rcode density, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+% x = rnorm(1000)
+%
+% plot(density(x))
+%
+% rug(x)
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Q-Q plot}
+%% begin.rcode qqnorm, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+%
+% qqnorm(rnorm(10000))
+%% end.rcode
+\end{frame}
+
+\subsection{箱线图}
+\begin{frame}
+\frametitle{boxplot}
+%% begin.rcode boxplot, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+%
+% boxplot(rnorm(1000))
+%% end.rcode
+\end{frame}
+
+\begin{frame}
+\frametitle{boxplot}
+%% begin.rcode boxplot1, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+%
+% boxplot(cbind(rnorm(1000),rnorm(1000)+rnorm(1000)), col=c("red","green"))
+%% end.rcode
+\end{frame}
+
+
+\section{R语言输出符合论文发表要求的图形}
+
+\subsection{学术期刊的要求}
+\begin{frame}
+	\centerline{\huge{学术期刊对图片有什么要求？}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Nature}
+\begin{block}{Nature}
+Figures should be as small and simple as is compatible with clarity. The goal is for figures to be comprehensible to readers in other or related disciplines, and to assist their understanding of the paper. Unnecessary figures and parts (panels) of figures should be avoided: data presented in small tables or histograms, for instance, can generally be stated briefly in the text instead. Avoid unnecessary complexity, colouring and excessive detail.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nature}
+\begin{block}{Nature}
+Figures should not contain more than one panel unless the parts are logically connected; each panel of a multipart figure should be sized so that the whole figure can be reduced by the same amount and reproduced on the printed page at the smallest size at which essential details are visible. For guidance, Nature’s standard figure sizes are 89 mm (single column) and 183 mm (double column) and the full depth of the page is 247 mm.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nature}
+\begin{block}{Nature}
+Amino-acid sequences should be printed in Courier (or other monospaced) font using the one-letter code in lines of 50 or 100 characters.
+
+Authors describing chemical structures are requested to use the Nature Chemical Biology guidelines.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nature}
+\begin{block}{Nature brief guidance}
+\begin{itemize}
+\item Lettering in figures (labelling of axes and so on) should be in lower-case type, with the first letter capitalized and no full stop.
+\item Units should have a single space between the number and the unit, and follow SI nomenclature or the nomenclature common to a particular field. Thousands should be separated by commas (1,000). Unusual units or abbreviations are defined in the legend.
+\item Scale bars should be used rather than magnification factors.
+\item Layering type directly over shaded or textured areas and using reversed type (white lettering on a coloured background) should be avoided where possible.
+\item Where possible, text, including keys to symbols, should be provided in the legend rather than on the figure itself.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nature}
+\begin{block}{Figure quality}
+\begin{itemize}
+\item At initial submission, figures should be at good enough quality to be assessed by referees, ideally as JPEGs.
+\item Authors will be asked for high-quality figures at the time of acceptance of their article for publication, so it is not necessary to send them at the submission stage.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nature Final Figure}
+\includegraphics[width=\textwidth]{final-artwork.pdf}
+\end{frame}
+
+\subsection{实例}
+\begin{frame}
+\frametitle{实例}
+如何让这个散点图满足Nature的要求？
+
+%% begin.rcode forpublication, out.height='.8\\textheight',  out.width='.8\\textheight', echo=T, fig.align='center'
+% plot(rnorm(100), rnorm(100))
+%% end.rcode
+
+\end{frame}
+
+
+
+\section{R语言绘图实战}
+
+
+\begin{frame}
+	\frametitle{整合地图}
+\centerline{\includegraphics[height=\textheight]{worldmap.png}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{整合地图}
+\centerline{\includegraphics[height=.8\textheight]{bgi-map.png}}
+\end{frame}
+
+
+\subsection{整合临床信息的热图}
+\begin{frame}
+	\frametitle{整合临床信息的热图}
+\centerline{\includegraphics[height=.8\textheight]{context-specfic-mutation.pdf}}
+\end{frame}
+
+\begin{frame}
+\frametitle{麻烦}
+\begin{block}{麻烦}
+\begin{itemize}
+\item 热图到底在干什么？
+\item 怎么画热图？
+\item layout函数不起作用，怎么回事？
+\item 怎么自动添加临床信息？
+\item 如何解读？
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{什么是热图？}
+%% begin.rcode heatmap, echo=T, out.height='.6\\textheight', out.width='.6\\textwidth', fig.align='center'
+% m = matrix(rnorm(10000), ncol=100, nrow=100)
+%
+% heatmap(m)
+%% end.rcode
+\end{frame}
+
+\begin{frame}
+\frametitle{heatmap在干什么？}
+\centerline{让我们看看heatmap到底在干什么}
+\end{frame}
+
+\begin{frame}
+\frametitle{改造heatmap}
+\end{frame}
+
+\section{R语言绘图高级话题}
+
+\subsection{ggplot2}
+
+\begin{frame}
+	\frametitle{ggplot2}
+%% begin.rcode loadggplot2, echo=F, warning=F, message=F, error=F
+% # ggplot2 examples
+%library(ggplot2) 
+%
+%# create factors with value labels 
+%mtcars$gear <- factor(mtcars$gear,levels=c(3,4,5),
+%  	 labels=c("3gears","4gears","5gears")) 
+%mtcars$am <- factor(mtcars$am,levels=c(0,1),
+%  	 labels=c("Automatic","Manual")) 
+%mtcars$cyl <- factor(mtcars$cyl,levels=c(4,6,8),
+%   labels=c("4cyl","6cyl","8cyl")) 
+%
+%# Kernel density plots for mpg
+%# grouped by number of gears (indicated by color)
+%% end.rcode
+
+%% begin.rcode ggplot2, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+%qplot(mpg, data=mtcars, geom="density", fill=gear, alpha=I(.5), 
+%   main="Distribution of Gas Milage", xlab="Miles Per Gallon", 
+%   ylab="Density")
+%% end.rcode
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{ggplot2}
+
+%% begin.rcode ggplot2-1, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+% qplot(hp, mpg, data=mtcars, shape=am, color=am, 
+%   facets=gear~cyl, size=I(3),
+%   xlab="Horsepower", ylab="Miles per Gallon") 
+%% end.rcode
+\end{frame}
+
+\begin{frame}
+	\frametitle{ggplot2}
+%% begin.rcode ggplot2-2, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+% qplot(wt, mpg, data=mtcars, geom=c("point", "smooth"), 
+%   method="lm", formula=y~x, color=cyl, 
+%   main="Regression of MPG on Weight", 
+%   xlab="Weight", ylab="Miles per Gallon")
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{ggplot2}
+%% begin.rcode ggplot2-3, out.height='.6\\textheight',  out.width='.6\\textheight', echo=T, fig.align='center'
+% qplot(gear, mpg, data=mtcars, geom=c("boxplot", "jitter"), 
+%   fill=gear, main="Mileage by Gear Number",
+%   xlab="", ylab="Miles per Gallon")
+%% end.rcode
+\end{frame}
+
+
+\subsection{大数据可视化}
+\begin{frame}
+	\frametitle{大数据可视化}
+\end{frame}
+
+\subsection{高级生物数据可视化}
+
+\begin{frame}
+\frametitle{Bioconductor}
+\end{frame}
+
+\begin{frame}
+\frametitle{ggbio}
+
+\centerline{\Huge{GGplot2 + BIOconductor = ggbio}}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{感谢}
+	\centerline{\Huge{谢谢}}
+\end{frame}
+
+\end{document}
