@@ -1,0 +1,9 @@
+Package: bgiR
+Title: R package for R training from BGI-Tech
+Version: 0.1
+Date: 2013-04-15
+Author: Gang Chen
+Maintainer: Gang Chen <chengangcs@gmail.com>
+Description: R package used in R training provided by BGI-Tech Solutions(http://bgitechsolutions.com).
+Suggests: 
+License: GPL-3

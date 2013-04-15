@@ -1,4 +1,4 @@
 bgiR
 ====
 
-an R package for R training at BGI-Tech
+An R package for R training at BGI-Tech (http://www.bgitechsolutions.com).
