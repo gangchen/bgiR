@@ -16,10 +16,18 @@
 }
 
 \title{R语言绘图基础}
+
 \subtitle{生物数据基本分析与可视化}
+
 \author{陈钢\\ chengang@bgitechsolutions.cn}
 \logo{\includegraphics[width=2cm]{bgi-logo.png}}
-\date{\today}
+
+%%begin.rcode subtitle, echo=FALSE, results='asis'
+%
+%  cat(paste('\\date{',subtitle, '\\\\ \\today}\n'));
+% 
+%
+%%end.rcode
 
 
 \begin{document}
@@ -73,11 +81,13 @@
 \end{frame}
 
 \subsection{讲师}
-\begin{frame}[t]\frametitle{陈钢}
+\begin{frame}[t]\frametitle{陈钢，华大基因研究员}
 \begin{block}{教育背景}
 \begin{itemize}
-\item 中南大学计算机专业博士，2008.9 ~ 2012.6
-\item 德克萨斯大学医学部访问学者,2009.10 ~ 2010.10
+\item 中南大学计算机专业博士，2008.9 \~ 2012.6
+\item 德克萨斯大学医学部访问学者,2009.10 \~ 2010.10
+\item 法国巴斯德研究院，香港大学医学院，生物信息与比较基因组学暑期学校
+\item 清华大学，生物信息学暑期学校
 \end{itemize}
 \end{block}
 \end{frame}
@@ -86,15 +96,18 @@
 \begin{frame}[t]\frametitle{陈钢}
 \begin{block}{科研}
 \begin{itemize}
-	\item 出版译著8本，包括《R语言实战》
+	\item 出版译著8本，包括《R语言实战》。
+        \item 即将出版《R in a Nutshell》、《统计思维》、《生物信息学数据挖掘》。
 	\item 10篇生物信息方面的论文，在中国R语言会议等会议上作报告。
+        \item BMC Systems Biology, IJBRA, IEEE/ACM TCBB, Cancer Genetics审稿人。
 \end{itemize}
 \end{block}
 
 \begin{block}{授课}
 \begin{itemize}
-	\item 2013年香港中文大学生物信息学硕士课程讲师
-	\item 2012年创新班R语言基础课程
+	\item 香港中文大学生物信息学硕士课程讲师
+	\item 华大基因研究院创新班R语言基础课程
+        \item Supstat统计咨询公司专家
 	\item \ldots \ldots
 \end{itemize}
 \end{block}

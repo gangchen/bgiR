@@ -1,6 +1,5 @@
-library(knitr)
 
-genSlide <- function(){
+genSlide <- function(subtitle=""){
   print("Generating slides of R training provided by BGI-Tech.")
   packagePath =  paste(path.package("bgiR"),"/bgiR-slide/", sep="")
   knit(input = paste(packagePath,"slides.Rtex", sep=""), encoding = "UTF-8")
