@@ -312,7 +312,7 @@ R is a free software environment for statistical computing and graphics.
 \item 列表LIST
 \end{itemize}
 \end{frame}
-
+2
 \begin{frame}
 \frametitle{数据类型}
 \begin{block}{向量，矩阵，数组}
@@ -328,6 +328,11 @@ R is a free software environment for statistical computing and graphics.
 
 \begin{frame}
   \frametitle{数据框}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{列表}
 
 \end{frame}
 

@@ -1,0 +1,42 @@
+\documentclass[UTF8]{beamer}
+\usepackage{graphicx, color}
+\usepackage{zhspacing}
+\usetheme{JuanLesPins}
+\usepackage{fontspec}
+\setsansfont{Î¢ÈíÑÅºÚ}
+
+
+\usepackage{enumerate}
+
+\AtBeginSection[]{
+	\frame{
+		\frametitle{Next}
+		\tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
+	}
+}
+
+\title{²âÊÔÇý¶¯RÓïÑÔÀ©Õ¹°ü¿ª·¢}
+
+\subtitle{testthat, Runit, svUnit}
+
+\author{³Â¸Ö\\ chengang@bgitechsolutions.cn}
+\logo{\includegraphics[width=2cm]{bgi-logo.png}}
+
+%%begin.rcode subtitle, echo=FALSE, results='asis'
+%
+%  cat(paste('\\date{',subtitle, '\\\\ \\today}\n'));
+% 
+%
+%%end.rcode
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}[t]\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+\end{document}
