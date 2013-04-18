@@ -84,8 +84,8 @@
 \begin{frame}[t]\frametitle{陈钢，华大基因研究员}
 \begin{block}{教育背景}
 \begin{itemize}
-\item 中南大学计算机专业博士，2008.9 \~ 2012.6
-\item 德克萨斯大学医学部访问学者,2009.10 \~ 2010.10
+\item 中南大学计算机专业博士，2008.9 -- 2012.6
+\item 德克萨斯大学医学部访问学者,2009.10 -- 2010.10
 \item 法国巴斯德研究院，香港大学医学院，生物信息与比较基因组学暑期学校
 \item 清华大学，生物信息学暑期学校
 \end{itemize}
@@ -102,7 +102,9 @@
         \item BMC Systems Biology, IJBRA, IEEE/ACM TCBB, Cancer Genetics审稿人。
 \end{itemize}
 \end{block}
+\end{frame}
 
+\begin{frame}\frametitle{陈钢}
 \begin{block}{授课}
 \begin{itemize}
 	\item 香港中文大学生物信息学硕士课程讲师
@@ -312,7 +314,7 @@ R is a free software environment for statistical computing and graphics.
 \item 列表LIST
 \end{itemize}
 \end{frame}
-2
+
 \begin{frame}
 \frametitle{数据类型}
 \begin{block}{向量，矩阵，数组}
@@ -326,14 +328,29 @@ R is a free software environment for statistical computing and graphics.
 
 
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{数据框}
 
+%% begin.rcode
+%
+% data.frame(names=c("A", "B", "C"), 
+%            scores=c(91, 92, 93), 
+%            height=c(177, 169, 172))
+%
+%% end.rcode
 \end{frame}
 
 
-\begin{frame}\frametitle{列表}
-
+\begin{frame}[fragile]
+\frametitle{列表}
+\small
+%% begin.rcode
+%
+% list(a = 1, b = c("A", "B"), 
+%      c = list(x="Test", y="result"), 
+%      d = matrix(rnorm(16), 4, 4))
+%
+%% end.rcode
 \end{frame}
 
 \begin{frame}\frametitle{函数}
@@ -772,7 +789,7 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \begin{frame}
 \frametitle{ggbio}
 
-\centerline{\Huge{GGplot2 + BIOconductor = ggbio}}
+\centerline{\huge{GGplot2 + BIOconductor = ggbio}}
 \end{frame}
 
 
