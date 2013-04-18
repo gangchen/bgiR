@@ -413,11 +413,42 @@ R is a free software environment for statistical computing and graphics.
 \end{frame}
 
 \begin{frame}[t]\frametitle{面向对象}
+\begin{block}{S3和S4面向对象系统}
 \begin{itemize}
-	\item S3
-	\item S4
+	\item S3：古老，简单,动态,不完整
+	\item S4：新，结构化，强大
 \end{itemize}
+\end{block}
+
+\begin{block}{S3}
+\begin{itemize}
+\item 大部分的R包都是基于S3系统的
+\item S3的功能足够开发大部分的软件
+\item S3简单易懂
+\end{itemize}
+\end{block}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{类型type和类class}
+  \begin{block}{两者的关系}
+    \begin{itemize}
+      \item R里面的每个东西都有自己的类型和类
+      \item 有时候两者是一样的
+      \item 类型是最基本的数据结构:例如numeric、character
+      \item 类是一个描述对象的字符串，更容易让人类理解：例如person、gene
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{S3实例}
+
+\centerline{详见example(exampleOO)}
+\end{frame}
+
 
 \section{R语言基本统计分析与图形绘制}
 

@@ -8,5 +8,5 @@ Gene expression data of ESCC.
 \format{data frame}
 \source{GEO}
 \usage{data(exprData)}
-\seealso{\code{\link{iheatmap}}}}
+\seealso{\code{\link{iheatmap}}}
 \keyword{datasets}

@@ -8,5 +8,6 @@ Description: R package used in R training provided by BGI-Tech Solutions(http://
 Depends: R (>= 2.15.0), knitr, testthat
 Suggests: 
 License: GPL-3
+Encoding: UTF-8
 URL: https://github.com/gangchen/bgiR
 BugReports: https://github.com/gangchen/bgiR
