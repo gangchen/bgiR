@@ -412,6 +412,32 @@ R is a free software environment for statistical computing and graphics.
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}[fragile]
+  \frametitle{apply}
+%% begin.rcode apply
+%
+% data = matrix(rnorm(10000), ncol=10, nrow=1000)
+%
+% apply(data, 2, sum)
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{tapply}
+
+%% begin.rcode
+%
+% types = sample(1:4, 1000, replace=T)
+%
+% tapply(data[,1], types, sum)
+%
+%% end.rcode
+\end{frame}
+
+
 \begin{frame}[t]\frametitle{面向对象}
 \begin{block}{S3和S4面向对象系统}
 \begin{itemize}

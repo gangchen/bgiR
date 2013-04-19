@@ -1,0 +1,5 @@
+exampleApply <- function(){
+}
+
+exampleTapply <- function(){
+}
