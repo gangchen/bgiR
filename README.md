@@ -1,4 +1,8 @@
 bgiR
 ====
 
-An R package for R training at BGI-Tech (http://www.bgitechsolutions.com).
+这个R包是为华大科技服务有限公司（http://www.bgitechsolutions.com）为合作伙伴提供的R语言培训服务而开发的，包括以下内容：
+
+* 培训所使用的演示文件：使用knitr包+XeLaTeX自动生成
+* 培训所使用的例子代码：详见包中的example系列函数及其帮助文档
+* 一些绘图的实战例子：聚类分析、地图、生存分析等
