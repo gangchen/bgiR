@@ -6,7 +6,7 @@
   Examples of tapply function.
 }
 \arguments{NULL}
-\usage{examples(exampleTapply)}
+\usage{exampleTapply()}
 \value{NULL}
 \author{Gang Chen}
 \examples{

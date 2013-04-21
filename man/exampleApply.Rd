@@ -5,7 +5,7 @@
   Examples of apply function.
 }
 \arguments{NULL}
-\usage{examples(exampleApply)}
+\usage{exampleApply()}
 \value{NULL}
 \author{Gang Chen}
 \examples{

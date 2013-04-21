@@ -1,12 +1,11 @@
 \name{exampleOO}
-\docType{function}
 \alias{exampleOO}
 \title{Examples for S3 OO system}
 \description{
   Examples of S3 OO systems.
 }
 \arguments{NULL}
-\usage{examples(exampleOO)}
+\usage{exampleOO()}
 \value{NULL}
 \author{Gang Chen}
 \examples{
