@@ -71,10 +71,10 @@
 \begin{enumerate}[课时 1. ]
 	\item R语言简介和系统安装
 	\item R语言基本语法
-	\item R语言基本统计分析与图形绘制
-	\item R语言输出符合论文发表要求的图形
+	\item R语言基本图形绘制
+	\item {\small R语言输出符合论文发表要求的图形}
 	\item R语言绘图实战
-	\item R语言绘图高级话题
+	\item {\small R语言绘图高级话题}
 \end{enumerate}
 \end{block}
 
@@ -90,7 +90,7 @@
 \item 清华大学，生物信息学暑期学校
 \end{itemize}
 \end{block}
-\end{frame}
+8\end{frame}
 
 
 \begin{frame}[t]\frametitle{陈钢}
@@ -721,7 +721,12 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 
 
 \section{R语言绘图实战}
+\subsection{3维柱状图}
 
+
+\begin{frame}
+  \centerline{bgiR::barPlot3d()}
+\end{frame}
 
 \begin{frame}
 	\frametitle{整合地图}
