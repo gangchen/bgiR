@@ -14,14 +14,21 @@ binPlot3d<-function(x,y,z,alpha=1,topcol="#ff0000",sidecol="#aaaaaa"){
    rgl.lines(x2,z2,y2,col="#000000")
 }
 
-barPlot3d <- function(mat, topcol=1){
-  if(length(topcol) == 1){
+barPlot3d <- function(mat, topcol=1, sidecol=1){
+  if(length(topcol) == 1 && length(sidecol)==1){
     topcol = matrix(rainbow(nrow(mat)*ncol(mat)),nrow(mat), ncol(mat))
+  }else if(length(sidecol) == 1){
+    sidecol = topcol
+  }else if(length(topcol) == 1){
+    topcol = sidecol
+  }else{
+    
   }
   for(i in 1:nrow(mat)){
     for(j in 1:ncol(mat)){
-      col = topcol[i,j]
-      binPlot3d(c(i-0.4,i+0.4), c(j-0.4,j+0.4),mat[i,j], alpha=0.8,topcol=col,sidecol=col)
+      tcol = topcol[i,j]
+      scol = sidecol[i,j]
+      binPlot3d(c(i-0.4,i+0.4), c(j-0.4,j+0.4),mat[i,j], alpha=0.8,topcol=tcol,sidecol=scol)
     }
   }
 }
