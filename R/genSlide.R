@@ -1,5 +1,5 @@
 
-genSlide <- function(name, subtitle=""){
+genSlide <- function(name, subtitle="", secLogo=""){
   print("Generating slides of R training provided by BGI-Tech.")
   packagePath =  paste(path.package("bgiR"),"/slides/bgiR-", name, "/", sep="")
   knit(input = paste(packagePath,"slides.Rtex", sep=""), encoding = "UTF-8")
@@ -11,6 +11,8 @@ genSlide <- function(name, subtitle=""){
   file.copy(paste(packagePath,"final-artwork.pdf",sep=""), "final-artwork.pdf")
   file.copy(paste(packagePath,"worldmap.png",sep=""), "worldmap.png")
   file.copy(paste(packagePath,"bgi-map.png",sep=""), "bgi-map.png")
+  file.copy(paste(packagePath,"spectrum.png",sep=""), "spectrum.png")
+    file.copy(paste(packagePath,"iheatmap.png",sep=""), "iheatmap.png")
 
   print("xelatex is running")
   system("xelatex slides.tex")

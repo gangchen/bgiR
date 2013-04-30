@@ -20,7 +20,16 @@
 \subtitle{生物数据基本分析与可视化}
 
 \author{陈钢\\ chengang@bgitechsolutions.cn}
-\logo{\includegraphics[width=2cm]{bgi-logo.png}}
+
+
+%% begin.rcode logo, echo=FALSE, results='asis'
+%
+% if(length(secLogo) > 0){
+% cat(paste('\\logo{\\includegraphics[width=2cm]{bgi-logo.png}\\includegraphics[width=1cm]{',secLogo,'}}', sep=""))
+% }else{
+% cat('\\logo{\\includegraphics[width=2cm]{bgi-logo.png}}')
+% }
+%% end.rcode
 
 %%begin.rcode subtitle, echo=FALSE, results='asis'
 %
@@ -67,14 +76,13 @@
 \subsection{课程计划}
 \begin{frame}[t]\frametitle{课程计划}
 \begin{block}{课程安排}
-\scriptsize	
 \begin{enumerate}[课时 1. ]
 	\item R语言简介和系统安装
 	\item R语言基本语法
 	\item R语言基本图形绘制
-	\item {\small R语言输出符合论文发表要求的图形}
+	\item {\scriptsize R语言输出符合论文发表要求的图形}
 	\item R语言绘图实战
-	\item {\small R语言绘图高级话题}
+	\item {\scriptsize R语言绘图高级话题}
 \end{enumerate}
 \end{block}
 
@@ -90,7 +98,7 @@
 \item 清华大学，生物信息学暑期学校
 \end{itemize}
 \end{block}
-8\end{frame}
+\end{frame}
 
 
 \begin{frame}[t]\frametitle{陈钢}
@@ -369,10 +377,10 @@ R is a free software environment for statistical computing and graphics.
 
 \begin{frame}[t]\frametitle{基本运算}
 \begin{itemize}
-	\item 四则运算
-	\item 幂
-	\item 矩阵运算
-	\item 集合操作
+	\item 四则运算: +, -, *, /
+	\item 幂: $\wedge$
+	\item 矩阵运算: \%in\%
+	\item 集合操作: union, intersect, setdiff
 \end{itemize}
 \end{frame}
 
@@ -390,7 +398,7 @@ R is a free software environment for statistical computing and graphics.
 
 \begin{frame}[t]\frametitle{条件语句}
 \begin{itemize}
-	\item if-else
+	\item if-else: if(cond){}else{}
 	\item switch
 \end{itemize}
 \end{frame}
@@ -400,6 +408,9 @@ R is a free software environment for statistical computing and graphics.
 \begin{itemize}
 	\item for
 	\item while
+        \item repeat
+        \item break
+        \item next
 \end{itemize}
 \end{frame}
 
@@ -427,7 +438,6 @@ R is a free software environment for statistical computing and graphics.
 
 \begin{frame}[fragile]
   \frametitle{tapply}
-
 %% begin.rcode
 %
 % types = sample(1:4, 1000, replace=T)
@@ -471,7 +481,6 @@ R is a free software environment for statistical computing and graphics.
 
 \begin{frame}
   \frametitle{S3实例}
-
 \centerline{详见example(exampleOO)}
 \end{frame}
 
@@ -648,6 +657,20 @@ R is a free software environment for statistical computing and graphics.
 %% end.rcode
 \end{frame}
 
+\subsection{练习}
+
+\begin{frame}
+  \frametitle{基因表达数据}
+
+%% begin.rcode
+%
+% library(bgiR)
+% 
+% data(exprData)
+%
+%% end.rcode
+\end{frame}
+
 
 \section{R语言输出符合论文发表要求的图形}
 
@@ -724,10 +747,24 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \subsection{3维柱状图}
 
 
+
+\begin{frame}
+  \frametitle{原图}
+
+  \begin{block}{参考文献}
+Austin M Dulak, Exome and whole-genome sequencing of esophageal adenocarcinoma identifies recurrent driver events and mutational complexity, Nature Genetics, March 2013
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \centerline{\includegraphics[height=\textheight]{spectrum.png}}
+\end{frame}
+
 \begin{frame}
   \centerline{bgiR::barPlot3d()}
 \end{frame}
 
+\subsection{地图}
 \begin{frame}
 	\frametitle{整合地图}
 \centerline{\includegraphics[height=\textheight]{worldmap.png}}
@@ -742,7 +779,7 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \subsection{整合临床信息的热图}
 \begin{frame}
 	\frametitle{整合临床信息的热图}
-\centerline{\includegraphics[height=.8\textheight]{context-specfic-mutation.pdf}}
+\centerline{\includegraphics[height=.8\textheight]{iheatmap.png}}
 \end{frame}
 
 \begin{frame}
@@ -772,9 +809,9 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \centerline{让我们看看heatmap到底在干什么}
 \end{frame}
 
-\begin{frame}
-\frametitle{改造heatmap}
-\end{frame}
+%\begin{frame}
+%\frametitle{改造heatmap}
+%\end{frame}
 
 \section{R语言绘图高级话题}
 
@@ -837,21 +874,22 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \end{frame}
 
 
-\subsection{大数据可视化}
+\subsection{高级话题}
 \begin{frame}
-	\frametitle{大数据可视化}
-\end{frame}
 
-\subsection{高级生物数据可视化}
-
-\begin{frame}
-\frametitle{Bioconductor}
-\end{frame}
-
-\begin{frame}
-\frametitle{ggbio}
-
-\centerline{\huge{GGplot2 + BIOconductor = ggbio}}
+  \begin{block}{未来的课程}
+\begin{itemize}
+\item Bioconductor：专为生物信息诞生的项目
+\item ggbio：ggplot2+Bioconductor
+\item 大数据分析：TB、PB级数据
+\item 生物数据挖掘：聚类、分类、寻找Biomarker、药物靶标
+\item 多源生物数据融合：系统生物学（Systems Biology）
+\item R扩展包开发：bgiR
+\item R高性能计算：并行、GPU、C/C++扩展
+\item 文本挖掘、meta-analysis、测序数据分析\ldots
+\item 还有什么？
+\end{itemize}
+  \end{block}
 \end{frame}
 
 
