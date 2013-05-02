@@ -1,0 +1,164 @@
+\documentclass[UTF8]{beamer}
+\usepackage{graphicx, color}
+\usepackage{zhspacing}
+\usetheme{JuanLesPins}
+\usepackage{fontspec}
+\setsansfont{Microsoft YaHei}
+
+\usepackage{enumerate}
+
+\AtBeginSection[]{
+	\frame{
+		\frametitle{Next}
+		\tableofcontents[currentsection, subsectionstyle=show/shaded/hide]
+	}
+}
+
+\title{ML4Bioinfor-R}
+
+\subtitle{Machine Learning for Bioinformatics using R\\}
+
+\author{Gang Chen\\ chengang@bgitechsolutions.cn}
+
+
+%% begin.rcode logo, echo=FALSE, results='asis'
+%
+% if(nchar(secLogo) > 0){
+% cat(paste('\\logo{\\includegraphics[width=2cm]{bgi-logo.png}\\includegraphics[width=1cm]{',secLogo,'}}', sep=""))
+% }else{
+% cat('\\logo{\\includegraphics[width=2cm]{bgi-logo.png}}')
+% }
+%% end.rcode
+
+%%begin.rcode subtitle, echo=FALSE, results='asis'
+%
+%  cat(paste('\\date{',subtitle, '\\\\ \\today}\n'));
+% 
+%
+%%end.rcode
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}[t]\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+\section{Introduction}
+
+\begin{frame}[fragile]
+  \frametitle{Identification of Biomarker}
+
+%% begin.rcode, echo=F, out.height='.8\\textheight', out.width='.8\\textwidth', fig.align='center'
+%
+% library(bgiR)
+%
+% data(exprData)
+%  
+% labels = rep(c("normal","cancer"),53)
+%
+% layout(matrix(1:16, ncol=4, nrow=4))
+%
+% par = par()
+%
+% par(mar=c(2,2,2,2))
+%
+% tmp = sapply(1:16, function(x) boxplot(exprData[x,labels=="normal"],exprData[x,labels=="cancer"], names=c("normal","cancer"), main=rownames(exprData)[x], col=c("green","red")))
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}
+  \includegraphics[height=.5\textheight]{escc.jpg}
+  \includegraphics[height=.5\textheight]{esccNormal.jpg}\\
+
+\centerline{How to identify tumor from genomics perspective?}
+
+\centerline{\huge{The answer is Data Mining.}}
+\end{frame}
+
+\subsection{What is Data Mining?}
+
+
+\subsection{Origins of Data Mining}
+
+\subsection{Data Mining Tasks}
+
+\subsection{Organization of the course}
+
+
+\begin{frame}
+  \frametitle{Schedule}
+
+  \begin{block}{Schedule}
+\begin{itemize}
+\item Supervised Learning: Classifition (1 hr)
+\item Unsupervised Learning: Clustering (1 hr)
+\item Feature Learning: Selection and Extraction (1 hr)
+\end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Softwares}
+  \begin{block}{Softwares}
+\begin{itemize}
+\item R: R is an free platform for data analysis and visuaztion.
+\item R packages: 
+\begin{itemize}
+\item \textbf{e1071} for SVM
+\item \textbf{fselector} for feature selection
+\item \textbf{rpart} for decision tree
+\item \textbf{bgiR} includes all necessary things\\
+https://github.com/gangchen/bgiR
+\end{itemize}
+\item R IDE: Emacs + ESS, Vim + R-Plugin, RStudio or any other editor you like.
+\item Operation Systems: Windows, Linux or Mac OS
+\end{itemize}
+  \end{block}
+\end{frame}
+
+\section{Supervised Learning}
+
+\subsection{Supervised Learning in Bioinformatics}
+
+\subsection{Decision Tree and its Applications in Bioinformatics}
+
+\subsection{Support Vector Machine and its Applications in Bioinformatics}
+
+\subsection{Other Classification Techniques}
+
+\section{Unspervised Learning}
+
+\subsection{Unspervised Learning in Bioinformatics}
+
+\subsection{K-means Clustering and its Applications in Bioinformatics}
+
+\subsection{Hierarchical Clustering and its Applications in Bioinformatics}
+
+\subsection{Other Clustering Techniques}
+
+\section{Feature Learning}
+
+\subsection{Feature Learning and Biomarker Identification}
+
+\subsection{Feature Selection: Filter and Wrapper}
+
+\subsection{REILEF method}
+
+\subsection{Feature Extraction}
+
+\subsection{Principal Component Analysis}
+
+\subsection{Other Feature Learning Techniques}
+
+\section{Future}
+
+
+
+
+\end{document}
