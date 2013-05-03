@@ -83,10 +83,85 @@
 
 \subsection{What is Data Mining?}
 
+\begin{frame}
+  \frametitle{What is Data Mining?}
 
-\subsection{Origins of Data Mining}
+  \begin{block}{Pang-Ning Tan, Introduction to Data Mining}
+Data Mining is the process of automatically discovering useful information in large data repositories.
+  \end{block}
+
+  \begin{block}{Knowledge Discovery in Databases}
+Data Mining is an integral part of knowledge discovery in databases(KDD).
+  \end{block}
+\end{frame}
+\begin{frame}
+  \frametitle{Data Mining and KDD}
+\centerline{\includegraphics[width=\textwidth]{dmkdd.png}}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Data Mining and Bioinformatics}
+\begin{columns}[c]
+\begin{column}{.2\textwidth}
+\small{Biological Experiments}\\
+\tiny{Sequencing}\\
+\tiny{Mass Spectrum}\\
+\ldots
+\end{column}
+\begin{column}{.05\textwidth}
+$\rightarrow$
+\end{column}
+\begin{column}{.2\textwidth}
+\small{Preprocssing}\\
+\tiny{base calling}\\
+\tiny{alignment}\\
+\tiny{variants}\\
+\ldots
+\end{column}
+\begin{column}{.05\textwidth}
+$\rightarrow$
+\end{column}
+\begin{column}{.25\textwidth}
+Data Mining\\
+\tiny{Classification}\\
+\tiny{Regression}\\
+\tiny{Feature Engineering}\\
+\ldots
+\end{column}
+
+\begin{column}{.05\textwidth}
+$\rightarrow$
+\end{column}
+
+\begin{column}{.2\textwidth}
+Biological Knowledge
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Traditional Data Analysis}
+
+  \begin{block}{Motivations}
+\begin{itemize}
+\item Scalability
+\item High Dimensionality
+\item Heterogeneous and Complex Data
+\item Data Ownership and Distribution
+\item Non-traditional analysis
+\end{itemize}
+  \end{block}
+\end{frame}
 
 \subsection{Data Mining Tasks}
+
+
+\begin{frame}
+  \frametitle{Data Mining Tasks}
+\centerline{\includegraphics[height=.6\textheight]{dmtasks.jpg}}
+\end{frame}
 
 \subsection{Organization of the course}
 

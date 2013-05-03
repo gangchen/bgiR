@@ -24,7 +24,7 @@
 
 %% begin.rcode logo, echo=FALSE, results='asis'
 %
-% if(length(secLogo) > 0){
+% if(nchar(secLogo) > 0){
 % cat(paste('\\logo{\\includegraphics[width=2cm]{bgi-logo.png}\\includegraphics[width=1cm]{',secLogo,'}}', sep=""))
 % }else{
 % cat('\\logo{\\includegraphics[width=2cm]{bgi-logo.png}}')
