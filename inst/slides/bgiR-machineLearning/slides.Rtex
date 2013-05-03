@@ -1,6 +1,19 @@
 \documentclass[UTF8]{beamer}
 \usepackage{graphicx, color}
 \usepackage{zhspacing}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=3em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+\usepackage{underscore}
 \usetheme{JuanLesPins}
 \usepackage{fontspec}
 \setsansfont{Microsoft YaHei}
@@ -183,6 +196,7 @@ Biological Knowledge
   \begin{block}{Softwares}
 \begin{itemize}
 \item R: R is an free platform for data analysis and visuaztion.
+\item Rtools is required for Winodws systems.
 \item R packages: 
 \begin{itemize}
 \item \textbf{e1071} for SVM
@@ -197,7 +211,82 @@ https://github.com/gangchen/bgiR
   \end{block}
 \end{frame}
 
+
+\begin{frame}[fragile]
+  \frametitle{Software}
+
+  \begin{block}{bgiR package}
+    bgiR package is an R package developed for R related training.\\
+    Website: https://github.com/gangchen/bgiR
+  \end{block}
+
+
+%% begin.rcode, eval=FALSE
+%
+% install.packages("devtools")
+% library(devtools)
+% install_github("bgiR", "gangchen")
+%
+%% end.rcode
+
+\end{frame}
+
 \section{Supervised Learning}
+
+\begin{frame}
+\frametitle{Supervised Learning: Classification}
+
+\begin{block}{Classification}
+Assigning objects to one of several predefined categoriies.
+\end{block}
+
+
+\begin{block}{Definition}
+Classification is the task of learning a \textbf{target function} $f$ that maps each attribute set $x$ to one of the predefined class labels $y$.
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{How to solve a classification problem?}
+\begin{center}
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (model) {Model};
+    \node [block, above left of=model, node distance=2.2cm] (lmodel) {Learn Model};
+    \node [block, above of=lmodel, node distance=2cm] (lalg) {Learning Algorithm};
+    \node [block, left of=lmodel, node distance=3cm] (train) {Training Set};
+    \node [block, below left of=model, node distance=2.2cm] (amodel) {Apply Model};
+    \node [block, left of=amodel, node distance=3cm] (test) {Testing Set};
+
+
+    % Draw edges
+    \path [line] (train) -- (lmodel);
+    \path [line] (lalg) -- (lmodel);
+    \path [line] (lmodel) -- (model);
+    \path [line] (model) -- (amodel);
+    \path [line] (amodel) -- (test);
+\end{tikzpicture}\\
+General approach for building a classification model
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Evaluation}
+\begin{center}
+Confusion Matrix for a 2-class problem
+  \begin{tabular}{|c|c|c|}
+\hline
+  & Prediction=1 & Prediction=0 \\
+\hline
+Class=1 & $f_{11}$ & $f_{10}$ \\
+\hline
+Class=0 & $f_{01}$ & $f_{00}$\\
+\hline
+  \end{tabular}
+\end{center}
+\end{frame}
 
 \subsection{Supervised Learning in Bioinformatics}
 

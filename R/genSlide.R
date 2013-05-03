@@ -1,16 +1,16 @@
-cpImg <- function(imgName, name){
-  packagePath =  paste(path.package("bgiR"),"/slides/bgiR-", name, "/", sep="")
+cpImg <- function(imgName, slidesName){
+  packagePath =  paste(path.package("bgiR"),"/slides/bgiR-", slidesName, "/", sep="")
   file.copy(paste(packagePath,imgName,sep=""), imgName)
 }
 
-cpImgs <- function(pkgName){
-  pkgPath =  paste(path.package("bgiR"),"/slides/bgiR-", pkgName, "/", sep="")
+cpImgs <- function(slidesName){
+  slidesPath =  paste(path.package("bgiR"),"/slides/bgiR-", slidesName, "/", sep="")
 
-  file.copy(paste(pkgPath,"../resources/bgi-logo.png",sep4=""), "bgi-logo.png")
+  file.copy(paste(slidesPath,"../resources/bgi-logo.png",sep=""), "bgi-logo.png")
   
-  imgFiles = c(list.files(pkgPath,"*.jpg"),list.files(pkgPath,"*.png"),list.files(pkgPath, "*.pdf"))
+  imgFiles = c(list.files(slidesPath,"*.jpg"),list.files(slidesPath,"*.png"),list.files(slidesPath, "*.pdf"))
   for(img in imgFiles){
-    cpImg(img, pkgName)
+    cpImg(img, slidesName)
   }
 }
 
