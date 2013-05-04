@@ -1,6 +1,7 @@
 \documentclass[UTF8]{beamer}
 \usepackage{graphicx, color}
 \usepackage{zhspacing}
+\usepackage{amsmath}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 
@@ -288,11 +289,89 @@ Class=0 & $f_{01}$ & $f_{00}$\\
 \end{center}
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{Evaluation}
+
+  \begin{block}{Accuracy and Error Rate}
+
+    \begin{align*}
+      Accuracy & = \frac{\text{Number of correct predictions}}{\text{Total number of predictions}}\\
+&=\frac{f_{11}+f_{00}}{f_{11}+f_{10}+f_{00}+f_{01}}\\
+      Error Rate &= \frac{\text{Number of wrong predictions}}{\text{Total number of predictions}}\\
+&=\frac{f_{10}+f_{01}}{f_{11}+f_{10}+f_{00}+f_{01}}
+    \end{align*}
+  \end{block}
+\end{frame}
+
 \subsection{Supervised Learning in Bioinformatics}
+
+
+\begin{frame}
+  \frametitle{Classification in Bioinformatics}
+
+  \begin{block}{Applications}
+\begin{itemize}
+\item Classification of diseases, expecially cancer.
+\item Prediction of clinical outcome.
+\item Prediction of the function of gene or proteins.
+\item Prediction of the structure of proteins.
+\item \ldots \ldots
+\end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Objective}
+  \begin{block}{Two Objectives}
+    \begin{enumerate}
+      \item To build accuate classifiers or predictors
+      \item To derive inferences from the results obtained
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}{Challanges}
+    \begin{itemize}
+      \item data incocnsistency and missing values
+      \item noise
+      \item normalization
+      \item Deimensionality reduction
+    \end{itemize}
+  \end{block}
+\end{frame}
 
 \subsection{Decision Tree and its Applications in Bioinformatics}
 
+
+\begin{frame}
+  \frametitle{Decision Tree}
+
+%% begin.rcode, eval=FALSE
+%
+% library(rpart)
+%
+% library(C50)
+%
+% library(party)
+%
+%% end.rcode
+\end{frame}
+
 \subsection{Support Vector Machine and its Applications in Bioinformatics}
+
+
+\begin{frame}
+  \frametitle{SVM}
+
+
+%% begin.rcode, eval=FALSE
+%
+% library(e1071)
+%
+%% end.rcode
+
+\end{frame}
 
 \subsection{Other Classification Techniques}
 
@@ -302,7 +381,32 @@ Class=0 & $f_{01}$ & $f_{00}$\\
 
 \subsection{K-means Clustering and its Applications in Bioinformatics}
 
+
+\begin{frame}
+  \frametitle{K-means}
+
+%% begin.rcode, eval=FALSE
+%
+% help(kmeans)
+%
+%% end.rcode
+\end{frame}
+
 \subsection{Hierarchical Clustering and its Applications in Bioinformatics}
+
+
+\begin{frame}
+  \frametitle{Hierarchical Clustering}
+
+%% begin.rcode, eval=FALSE
+%
+% help(hclust)
+%
+% help(heatmap)
+%
+%% end.rcode
+\end{frame}
+
 
 \subsection{Other Clustering Techniques}
 
@@ -312,17 +416,54 @@ Class=0 & $f_{01}$ & $f_{00}$\\
 
 \subsection{Feature Selection: Filter and Wrapper}
 
+\begin{frame}
+  \frametitle{Feature Selection}
+
+%% begin.rcode, eval=FALSE
+%
+% library(FSelector)
+%
+%% end.rcode
+\end{frame}
+
+
 \subsection{REILEF method}
 
 \subsection{Feature Extraction}
 
 \subsection{Principal Component Analysis}
 
+
+\begin{frame}
+  \frametitle{PCA}
+
+%% begin.rcode, eval=FALSE
+%
+% help(princomp)
+%
+% help(prcomp)
+%
+%% end.rcode
+\end{frame}
+
+
 \subsection{Other Feature Learning Techniques}
 
 \section{Future}
 
 
+\begin{frame}
+  \frametitle{Future Reading}
+\begin{itemize}
+\item Data Mining for Bioinformatics
+\item Introduction to Machine Learning
+\item CRAN Task View: Machine Learning \& Statistical Learning: http://cran.r-project.org/web/views/MachineLearning.html
+\end{itemize}
+\end{frame}
 
+
+\begin{frame}
+  \centerline{\Huge{Thanks!}}
+\end{frame}
 
 \end{document}
