@@ -1,5 +1,6 @@
 \documentclass[UTF8]{beamer}
 \usepackage{graphicx, color}
+\usepackage{algorithm2e}
 \usepackage{zhspacing}
 \usepackage{amsmath}
 \usepackage{tikz}
@@ -376,27 +377,27 @@ Let $D_t$ be the set of training records that are associated with node $t$ and $
 
 
 \begin{frame}
-\tiny
+\footnotesize
 \textbf{Algorithm} A skeleton decision tree induction algorithm\\
 \textbf{TreeGrowth$(E,F)$}
 
-\begin{enumerate}
-  \item if stopping_cond($E, F$) = $true$ then
-  \item     $leaf = createNode()$
-  \item     $leaf.label = Classify(E)$
-  \item     return $leaf$
-  \item else
-  \item     $root$ = createNode()
-  \item     $roor.test\_cond$ = find_best_split($E, F$)
-  \item     let $V = {v|v \text{is a possible outcome of }root.test\_cond}$
-  \item     for each $v \in V$ do
-  \item         $E_v = {e | root.test\_cond(e)=v \text{and} e \in E}$
-  \item         $child = TreeGrowth(E_v, F)$
-  \item         add $child$ as descendent of $root$ and label the edge ($root \rightarrow child$) as $v$
-  \item     end for
-  \item end if
-  \item return root
-\end{enumerate}
+\begin{algorithm}[H]
+\SetAlgoLined
+  \eIf{stopping_cond($E, F$) = $true$}{
+       $leaf = createNode()$\;
+       $leaf.label = Classify(E)$\;
+       \Return{return $leaf$}
+}{
+       $root$ = createNode()\;
+       $roor.test\_cond$ = find_best_split($E, F$)\;
+       let $V = {v|v \text{is a possible outcome of }root.test\_cond}$
+       \For{each $v \in V$ do}{
+           $E_v = {e | root.test\_cond(e)=v \text{and} e \in E}$\;
+           $child = TreeGrowth(E_v, F)$\;
+           add $child$ as descendent of $root$ and label the edge ($root \rightarrow child$) as $v$}
+  }
+  \Return{root}
+\end{algorithm}
 
 \end{frame}
 
@@ -457,6 +458,17 @@ Let $D_t$ be the set of training records that are associated with node $t$ and $
 
 \begin{frame}
   \frametitle{SVM}
+\centerline{\includegraphics[height=.7\textheight]{svm.png}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kernal}
+\centerline{\includegraphics[height=.7\textheight]{kernel.jpg}}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{SVM in R}
 
 
 %% begin.rcode, eval=FALSE
