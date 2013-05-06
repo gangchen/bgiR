@@ -346,14 +346,108 @@ Class=0 & $f_{01}$ & $f_{00}$\\
 
 \begin{frame}
   \frametitle{Decision Tree}
+\centerline{\includegraphics[height=.7\textheight]{dt1.jpg}}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Concepts}
+  \begin{block}{Types of Nodes}
+    \begin{description}
+      \item[root node]:no incoming edges and zero or more outgoing edges.
+      \item[internal nodes]: has exactly one incoming edge and two or more outgoing edges.
+      \item[leaf or terminal nodes]: has exactly one incoming edge and no outgoing edges.
+    \end{description}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{How to build a Decision Tree?}
+\footnotesize
+  \begin{block}{Hunt's Algorithm}
+Let $D_t$ be the set of training records that are associated with node $t$ and $y={y_1, y_2,\ldots, y_c}$ to be the class labels.
+    \begin{enumerate}
+      \item if all the records in $D_t$ belong to the same class $y_t$, then $t$ is a leaf node labeled as $y_i$.
+      \item if $D_i$ contains records that belong to more than one class, an \textbf{attribute test condition} is selected to partition the records into smaller subsets. A child node is created for each outcome of the test condition and the records in $D_t$ are distributed to the chirldren based on the outcomes. The algorithm is then recursively applied to each child node.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+\tiny
+\textbf{Algorithm} A skeleton decision tree induction algorithm\\
+\textbf{TreeGrowth$(E,F)$}
+
+\begin{enumerate}
+  \item if stopping_cond($E, F$) = $true$ then
+  \item     $leaf = createNode()$
+  \item     $leaf.label = Classify(E)$
+  \item     return $leaf$
+  \item else
+  \item     $root$ = createNode()
+  \item     $roor.test\_cond$ = find_best_split($E, F$)
+  \item     let $V = {v|v \text{is a possible outcome of }root.test\_cond}$
+  \item     for each $v \in V$ do
+  \item         $E_v = {e | root.test\_cond(e)=v \text{and} e \in E}$
+  \item         $child = TreeGrowth(E_v, F)$
+  \item         add $child$ as descendent of $root$ and label the edge ($root \rightarrow child$) as $v$
+  \item     end for
+  \item end if
+  \item return root
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Decision Tree in R}
+
+%% begin.rcode, eval=FALSE
+% library(rpart)
+% library(C50)
+% library(party)
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{C5.0 Algorithm in R}
 
 %% begin.rcode, eval=FALSE
 %
-% library(rpart)
-%
 % library(C50)
+% C5.0(x, y)
+% # x is a data frame or a matrix of records
 %
-% library(party)
+% # y is a factor vector of class lables
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Decision Tree on Gene Expression Data}
+
+%% begin.rcode
+%
+%# load BGI package for R training
+% library(bgiR) 
+% library(C50) # load C50 package
+%# load ESCC microarray data of 1000 probesets
+% data(exprData) 
+% dt = C5.0(t(exprData), as.factor(rep(0:1,53)))
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+\tiny
+%% begin.rcode
+%
+% summary(dt)
 %
 %% end.rcode
 \end{frame}
