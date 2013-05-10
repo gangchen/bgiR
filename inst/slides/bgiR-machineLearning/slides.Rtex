@@ -402,6 +402,38 @@ Let $D_t$ be the set of training records that are associated with node $t$ and $
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{Overfitting}
+  \begin{block}{Reasons}
+\begin{itemize}
+\item Noise
+\item Lack of Representative samples
+\end{itemize}
+  \end{block}
+
+  \begin{block}{Occam's Razor}
+Given two models with the same generalization errors, the simpler model is prefered over the more complex model.
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Handling Overfitting in Decision Tree}
+
+  \begin{block}{Prepruning, Early Stopping Rule}
+Halt tree-growing algorithm before generating a fully grown tree:
+\begin{itemize}
+\item the observed gain falls below a certain threshold.
+\item the number of records in a node is less than a certain threshold.
+\end{itemize}
+  \end{block}
+
+
+  \begin{block}{Post-pruning}
+The decision tree is initially grown to its maximum size, then perform pruning.
+  \end{block}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Decision Tree in R}
 
@@ -429,6 +461,25 @@ Let $D_t$ be the set of training records that are associated with node $t$ and $
 
 
 \begin{frame}[fragile]
+\frametitle{C5.0Control}
+%% begin.rcode, eval=FALSE, tidy=FALSE
+%
+%   C5.0Control(subset = TRUE, 
+%             bands = 0, 
+%             winnow = FALSE, 
+%             noGlobalPruning = FALSE, 
+%             CF = 0.25, 
+%             minCases = 2, 
+%             fuzzyThreshold = FALSE, 
+%             sample = 0, 
+%             seed = sample.int(4096, size = 1) - 1L,  
+%             earlyStopping = TRUE,
+%             label = "outcome")
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Decision Tree on Gene Expression Data}
 
 %% begin.rcode
@@ -449,6 +500,17 @@ Let $D_t$ be the set of training records that are associated with node $t$ and $
 %% begin.rcode
 %
 % summary(dt)
+%
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}{fragile}
+  \frametitle{Decision Tree for Prostate Cancer Classification}
+\tiny
+%% begin.rcode
+%
+% data(prostateData)
 %
 %% end.rcode
 \end{frame}
