@@ -1,1 +1,1 @@
-export(barPlot3d, genSlide, bgiR)
+export(barPlot3d, genSlide, bgiR,pair3d)
