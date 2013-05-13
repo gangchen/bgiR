@@ -77,12 +77,12 @@
 \begin{frame}[t]\frametitle{课程计划}
 \begin{block}{课程安排}
 \begin{enumerate}[课时 1. ]
-	\item R语言简介和系统安装
-	\item R语言基本语法
-	\item R语言基本图形绘制
-	\item {\scriptsize R语言输出符合论文发表要求的图形}
-	\item R语言绘图实战
-	\item {\scriptsize R语言绘图高级话题}
+	\item R语言简介和系统安装 (上午)
+	\item R语言基本语法 （上午）
+	\item R语言基本图形绘制 （上午-下午）
+	\item R语言输出符合论文发表要求的图形 （下午）
+	\item R语言绘图实战 （下午）
+	\item R语言绘图高级话题 （下午）
 \end{enumerate}
 \end{block}
 
@@ -248,6 +248,27 @@ R is a free software environment for statistical computing and graphics.
 
 \end{frame}
 
+
+\begin{frame}[fragile]
+  \frametitle{bgiR}
+  \begin{block}{bgiR扩展包}
+bgiR是专为华大科技服务提供的R语言相关培训而开发的R语言扩展包。
+\begin{itemize}
+\item https://github.com/gangchen/bgiR
+\item 包含了R语言基础绘图、机器学习等培训所涉及的代码、示例数据和演示文件。
+\end{itemize}
+  \end{block}
+
+%% begin.rcode, eval=FALSE
+%
+% install.packages("devtools")
+% library(devtools)
+% install_github("bgiR", "gangchen")
+%
+%% end.rcode
+
+\end{frame}
+
 \subsection{开发环境设置}
 \begin{frame}[t]\frametitle{开发工具}
 \begin{block}{R开发工具}
@@ -256,6 +277,7 @@ R is a free software environment for statistical computing and graphics.
 	\item Emacs + ESS(演示)
 	\item VIM + R-plugin
 	\item RStudio （演示）
+        \item RStudio Server: http://115.28.41.214:8787/，用户名：user，密码：bgi-2013
 	\item \ldots \ldots
 \end{itemize}
 \end{block}
@@ -309,9 +331,24 @@ R is a free software environment for statistical computing and graphics.
 \end{itemize}
 \end{frame}
 
+\section{Hello, World!}
+
+\begin{frame}[fragile]
+
+%% begin.rcode
+%
+% a = c(1,2,3,4)
+% b = c("Hello", "R!")
+% print(paste0("The sum of a is ",sum(a)))
+% print(paste(b,sep=", "))
+%
+%% end.rcode
+\end{frame}
+
 \section{R语言基本语法}
 
 \subsection{基本数据类型}
+
 \begin{frame}[t]\frametitle{数据类型}
 \begin{itemize}
 \item 向量VECTOR
