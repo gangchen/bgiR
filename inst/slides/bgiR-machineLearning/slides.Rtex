@@ -82,7 +82,7 @@
 % par(mar=c(2,2,2,2))
 %
 % tmp = sapply(1:16, function(x) boxplot(exprData[x,labels=="normal"],exprData[x,labels=="cancer"], names=c("normal","cancer"), main=rownames(exprData)[x], col=c("green","red")))
-%
+%8
 %% end.rcode
 \end{frame}
 
@@ -186,9 +186,11 @@ Biological Knowledge
 
   \begin{block}{Schedule}
 \begin{itemize}
-\item Supervised Learning: Classifition (1 hr)
-\item Unsupervised Learning: Clustering (1 hr)
-\item Feature Learning: Selection and Extraction (1 hr)
+\item Introduction
+\item Unsupervised Learning: Clustering
+\item Supervised Learning: Classifition
+\item Feature Learning: Selection and Extraction
+\item Discussion
 \end{itemize}
   \end{block}
 \end{frame}
@@ -232,6 +234,40 @@ https://github.com/gangchen/bgiR
 %% end.rcode
 
 \end{frame}
+\section{Unspervised Learning}
+
+\subsection{Unspervised Learning in Bioinformatics}
+
+\subsection{K-means Clustering and its Applications in Bioinformatics}
+
+
+\begin{frame}
+  \frametitle{K-means}
+
+%% begin.rcode, eval=FALSE
+%
+% help(kmeans)
+%
+%% end.rcode
+\end{frame}
+
+\subsection{Hierarchical Clustering and its Applications in Bioinformatics}
+
+
+\begin{frame}
+  \frametitle{Hierarchical Clustering}
+
+%% begin.rcode, eval=FALSE
+%
+% help(hclust)
+%
+% help(heatmap)
+%
+%% end.rcode
+\end{frame}
+
+
+\subsection{Other Clustering Techniques}
 
 \section{Supervised Learning}
 
@@ -534,7 +570,7 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 
 
 %% begin.rcode, eval=FALSE
-%
+2%
 % library(e1071)
 %
 %% end.rcode
@@ -543,40 +579,6 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 
 \subsection{Other Classification Techniques}
 
-\section{Unspervised Learning}
-
-\subsection{Unspervised Learning in Bioinformatics}
-
-\subsection{K-means Clustering and its Applications in Bioinformatics}
-
-
-\begin{frame}
-  \frametitle{K-means}
-
-%% begin.rcode, eval=FALSE
-%
-% help(kmeans)
-%
-%% end.rcode
-\end{frame}
-
-\subsection{Hierarchical Clustering and its Applications in Bioinformatics}
-
-
-\begin{frame}
-  \frametitle{Hierarchical Clustering}
-
-%% begin.rcode, eval=FALSE
-%
-% help(hclust)
-%
-% help(heatmap)
-%
-%% end.rcode
-\end{frame}
-
-
-\subsection{Other Clustering Techniques}
 
 \section{Feature Learning}
 

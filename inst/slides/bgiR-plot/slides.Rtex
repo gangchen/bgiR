@@ -767,16 +767,12 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \includegraphics[width=\textwidth]{final-artwork.pdf}
 \end{frame}
 
-\subsection{实例}
-\begin{frame}
-\frametitle{实例}
-如何让这个散点图满足Nature的要求？
+%\subsection{实例}
+%\begin{frame}
+%\frametitle{实例}
+%如何让这个散点图满足Nature的要求？
 
-%% begin.rcode forpublication, out.height='.8\\textheight',  out.width='.8\\textheight', echo=T, fig.align='center'
-% plot(rnorm(100), rnorm(100))
-%% end.rcode
-
-\end{frame}
+%\end{frame}
 
 
 
