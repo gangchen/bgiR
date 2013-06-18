@@ -65,7 +65,7 @@
 \section{Introduction}
 
 \begin{frame}[fragile]
-  \frametitle{Identification of Biomarker}
+  \frametitle{Identification of Biomarker 1}
 
 %% begin.rcode, echo=F, out.height='.8\\textheight', out.width='.8\\textwidth', fig.align='center'
 %
@@ -82,21 +82,63 @@
 % par(mar=c(2,2,2,2))
 %
 % tmp = sapply(1:16, function(x) boxplot(exprData[x,labels=="normal"],exprData[x,labels=="cancer"], names=c("normal","cancer"), main=rownames(exprData)[x], col=c("green","red")))
-%8
+%
 %% end.rcode
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Identification of Biomarker 2}
+
+%% begin.rcode, echo=F, out.height='.8\\textheight', out.width='.8\\textwidth', fig.align='center'
+%
+% library(bgiR)
+%
+% data(exprData)
+%  
+% labels = rep(c("normal","cancer"),53)
+%
+% layout(matrix(1:100, ncol=10, nrow=10))
+%
+% par = par()
+%
+% par(mar=c(1,1,1,1))
+%
+% tmp = sapply(1:100, function(x) boxplot(exprData[x,labels=="normal"],exprData[x,labels=="cancer"], names=c("normal","cancer"), main=rownames(exprData)[x], col=c("green","red")))
+%
+%% end.rcode
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Identification of Biomarker 3}
+
+%% begin.rcode, echo=F, out.height='.8\\textheight', out.width='.8\\textwidth', fig.align='center'
+%
+% library(bgiR)
+%
+% data(exprData)
+%  
+% labels = rep(c("normal","cancer"),53)
+%
+% layout(matrix(1:400, ncol=20, nrow=20))
+%
+% par = par()
+%
+% par(mar=c(0,0,0,0))
+%
+% tmp = sapply(1:400, function(x) boxplot(exprData[x,labels=="normal"],exprData[x,labels=="cancer"], names=c("",""), main="", col=c("green","red")))
+%
+%% end.rcode
+\end{frame}
 
 \begin{frame}
   \includegraphics[height=.5\textheight]{escc.jpg}
   \includegraphics[height=.5\textheight]{esccNormal.jpg}\\
-
+\vspace{.8cm}
 \centerline{How to identify tumor from genomics perspective?}
-
-\centerline{\huge{The answer is Data Mining.}}
+\vspace{.8cm}
+\centerline{\huge{The answer is Machine Learning.}}
 \end{frame}
 
-\subsection{What is Data Mining?}
+\subsection{What is Machine Learning?}
 
 \begin{frame}
   \frametitle{What is Data Mining?}
@@ -116,7 +158,7 @@ Data Mining is an integral part of knowledge discovery in databases(KDD).
 
 
 \begin{frame}
-  \frametitle{Data Mining and Bioinformatics}
+  \frametitle{Machine Learning and Bioinformatics}
 \begin{columns}[c]
 \begin{column}{.2\textwidth}
 \small{Biological Experiments}\\
@@ -170,16 +212,21 @@ Biological Knowledge
   \end{block}
 \end{frame}
 
-\subsection{Data Mining Tasks}
-
-
 \begin{frame}
   \frametitle{Data Mining Tasks}
 \centerline{\includegraphics[height=.6\textheight]{dmtasks.jpg}}
 \end{frame}
 
-\subsection{Organization of the course}
+\begin{frame}[fragile]
+  \frametitle{Data Mining and Machine Learning}
+\begin{block}{Machine Learning}
+  Machine learning provides the technical basis of data mining.
 
+---Data Mining: Practical Machine Learning Tools and Techniques
+\end{block}
+\end{frame}
+
+\subsection{Organization of the course}
 
 \begin{frame}
   \frametitle{Schedule}
@@ -189,7 +236,7 @@ Biological Knowledge
 \item Introduction
 \item Unsupervised Learning: Clustering
 \item Supervised Learning: Classifition
-\item Feature Learning: Selection and Extraction
+\item Feature Learning: Feature Selection
 \item Discussion
 \end{itemize}
   \end{block}
@@ -204,13 +251,13 @@ Biological Knowledge
 \item R packages: 
 \begin{itemize}
 \item \textbf{e1071} for SVM
-\item \textbf{fselector} for feature selection
+\item \textbf{FSelector} for feature selection
 \item \textbf{rpart} for decision tree
 \item \textbf{bgiR} includes all necessary things\\
 https://github.com/gangchen/bgiR
 \end{itemize}
 \item R IDE: Emacs + ESS, Vim + R-Plugin, RStudio or any other editor you like.
-\item Operation Systems: Windows, Linux or Mac OS
+\item Operating Systems: Windows, Linux or Mac OS
 \end{itemize}
   \end{block}
 \end{frame}
@@ -234,40 +281,221 @@ https://github.com/gangchen/bgiR
 %% end.rcode
 
 \end{frame}
+
+
 \section{Unspervised Learning}
+
+\begin{frame}[fragile]
+  \frametitle{Heat Map}
+
+%% begin.rcode, echo=F, out.height='.7\\textheight', out.width='.6\\textwidth', fig.align='center'
+%
+% data(exprData)
+% library(colorRamps)
+% heatmap(exprData[apply(exprData, 1, sd)>0.05,], breaks=c(0, 0.9, 1, 1.1, 2), col=green2red(4), scale="none")
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Unspervised Learning: Clustering}
+\begin{block}{What is clustering?}
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters).
+
+---Wikipedia  
+\end{block}
+
+\begin{block}{Applications}
+\begin{itemize}
+\item for understanding: biology, information retrieval, climate, business \ldots
+\item for utility: summarization, compression, efficiently finding nearest neighbors \ldots
+\end{itemize}  
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Common Clustering Methods}
+\begin{block}{Clustering Methods}
+  \begin{itemize}
+  \item Density-based clustering
+  \item K-means
+  \item Hierarchical Clustering
+  \item Semi-supervised clustering
+  \item \ldots \ldots
+  \end{itemize}
+\end{block}
+\end{frame}
 
 \subsection{Unspervised Learning in Bioinformatics}
 
-\subsection{K-means Clustering and its Applications in Bioinformatics}
+\begin{frame}[fragile]
+  \frametitle{Applications of Clustering}
 
+\begin{block}{Applications}
+  \begin{itemize}
+  \item Overview of dataset
+  \item Discovery of unknown subtypes of diseases
+  \item Relationship among features and individuals
+  \item \ldots \ldots
+  \end{itemize}
+\end{block}
 
-\begin{frame}
-  \frametitle{K-means}
-
-%% begin.rcode, eval=FALSE
-%
-% help(kmeans)
-%
-%% end.rcode
 \end{frame}
 
 \subsection{Hierarchical Clustering and its Applications in Bioinformatics}
 
-
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Hierarchical Clustering}
+\begin{block}{Steps}
+  \begin{itemize}
+  \item Calculating distance between individuals
+  \item Combine closest individuals (optional, recaculate distance)
+  \item Visualization and annotation
+  \end{itemize}
+\end{block} 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Hierarchical Clustering in R}
 
 %% begin.rcode, eval=FALSE
-%
+% help(dist)
 % help(hclust)
-%
 % help(heatmap)
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Distance Calculation}
+
+%% begin.rcode, eval=F, tidy=F
+%
+% dist(x, method = "euclidean", 
+% diag = FALSE, 
+% upper = FALSE, 
+% p = 2)
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Distance Calculation}
+\tiny
+%% begin.rcode
+%
+% exprDist = dist(t(exprData)[1:8])
+% exprDist
+%
+%% end.rcode
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Clustering}
+
+%% begin.rcode clusting, eval=F
+%
+% hclust(d, method = "complete", members = NULL)
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Clustering}
+%% begin.rcode
+% exprDist = dist(t(exprData))
+% exprClust = hclust(exprDist)
+% exprClust
+%% end.rcode
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Visualization}
+\begin{block}{Visualization}
+  \begin{itemize}
+  \item Dendrogram: plot.hclust
+  \item Heat Map: heatmap
+  \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Dendrogram}
+
+%% begin.rcode, out.height='.7\\textheight', out.width='.9\\textwidth', fig.align='center'
+%
+% plot(exprClust)
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{plot.hclust}
+%% begin.rcode, tidy=F, eval=F
+% plot(x, labels = NULL, 
+% hang = 0.1,
+% axes = TRUE, 
+% frame.plot = FALSE, 
+% ann = TRUE,
+% main = "Cluster Dendrogram",
+% sub = NULL, 
+% xlab = NULL, ylab = "Height", ...)
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Heat Map}
+  
+%% begin.rcode, out.height='.7\\textheight', out.width='.6\\textwidth', fig.align='center'
+%
+% heatmap(exprData)
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{heatmap}
+\small
+%% begin.rcode, tidy=F, eval=F
+% heatmap(x, Rowv = NULL, Colv = if(symm)"Rowv" else NULL,
+% distfun = dist, hclustfun = hclust,
+% reorderfun = function(d, w) reorder(d, w),
+% add.expr, symm = FALSE, revC = identical(Colv, "Rowv"),
+% scale = c("row", "column", "none"), na.rm = TRUE,
+% margins = c(5, 5), ColSideColors, RowSideColors,
+% cexRow = 0.2 + 1/log10(nr), cexCol = 0.2 + 1/log10(nc),
+% labRow = NULL, labCol = NULL, main = NULL,
+% xlab = NULL, ylab = NULL,
+% keep.dendro = FALSE, verbose = getOption("verbose"), ...)
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{How to read Heat Map}
+
+%% begin.rcode, out.height='.8\\textheight', out.width='.7\\textwidth', fig.align='center', echo=F
+%
+% data(exprData)
+% heatmap(exprData[apply(exprData, 1, sd)>0.05,], breaks=c(0, 0.9, 1, 1.1, 2), col=green2red(4), scale="none")
 %
 %% end.rcode
 \end{frame}
 
 
-\subsection{Other Clustering Techniques}
+\subsection{Summary}
+
+\begin{frame}[fragile]
+  \frametitle{Suumary}
+\begin{block}{Clustering}
+  \begin{itemize}
+  \item Clustering is widely used in bioinformatics
+  \item Clustering can be implemented by using built-in functions of R
+  \item Clustering can be visualized as heat map and dendogram
+  \end{itemize}
+\end{block}
+\end{frame}
+
 
 \section{Supervised Learning}
 
@@ -540,13 +768,12 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 %% end.rcode
 \end{frame}
 
-
-\begin{frame}{fragile}
-  \frametitle{Decision Tree for Prostate Cancer Classification}
-\tiny
+\begin{frame}[fragile]
+  \frametitle{Performance}
 %% begin.rcode
 %
-% data(prostateData)
+% pre = predict(dt, t(exprData))
+% table(pre, rep(0:1, 53))
 %
 %% end.rcode
 \end{frame}
@@ -568,23 +795,97 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 \begin{frame}
   \frametitle{SVM in R}
 
-
 %% begin.rcode, eval=FALSE
-2%
+%
 % library(e1071)
 %
 %% end.rcode
 
 \end{frame}
 
-\subsection{Other Classification Techniques}
+\begin{frame}[fragile]
+  \frametitle{SVM}
 
+%% begin.rcode svmtraining
+%
+% model = svm(x = t(exprData), y = as.factor(rep(0:1, 53)))
+%
+%% end.rcode
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{SVM}
+%% begin.rcode svmpredict
+%
+% ret = predict(model, t(exprData))
+% table(ret, rep(0:1, 53))
+%
+%% end.rcode
+\end{frame}
+
+\subsection{Summary}
+\begin{frame}[fragile]
+  \frametitle{Summary}
+\begin{block}{Classification}
+
+  \begin{itemize}
+  \item Classification is an important technique for bioinformatics
+  \item Decision tree is a rule-based classification method
+  \item SVM is powerful
+  \item Classification algorithm can be implemented in R easily
+  \end{itemize}
+\end{block}
+\end{frame}
 
 \section{Feature Learning}
 
 \subsection{Feature Learning and Biomarker Identification}
 
+\begin{frame}[fragile]
+ 
+%% begin.rcode, echo=F, out.height='.9\\textheight', out.width='.9\\textwidth', fig.align='center'
+%
+% library(bgiR)
+%
+% data(exprData)
+%  
+% labels = rep(c("normal","cancer"),53)
+%
+% layout(matrix(1:400, ncol=20, nrow=20))
+%
+% par = par()
+%
+% par(mar=c(0,0,0,0))
+%
+% tmp = sapply(1:400, function(x) boxplot(exprData[x,labels=="normal"],exprData[x,labels=="cancer"], names=c("",""), main="", col=c("green","red")))
+%
+%% end.rcode
+  
+\end{frame}
+
 \subsection{Feature Selection: Filter and Wrapper}
+
+
+\begin{frame}[fragile]
+  \frametitle{Feature Selection}
+\begin{block}{Feature Selection}
+Feature selection is the process of selecting a subset of relevant features for use in model construction. 
+\end{block}
+
+\begin{block}{Why?}
+   Data always contains many redundant or irrelevant features.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Feature Selection}
+\begin{block}{Filter and Wrapper}
+\begin{itemize}
+\item Filter: Chi-Squared, correlation, \ldots
+\item Wrapper: Decision tree, SVM, Random Forest\ldots
+\end{itemize}
+\end{block}
+\end{frame}
 
 \begin{frame}
   \frametitle{Feature Selection}
@@ -597,30 +898,35 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 \end{frame}
 
 
-\subsection{REILEF method}
+\subsection{Filters}
+\begin{frame}[fragile]
+  \frametitle{Filters}
+\begin{block}{Filters}
+\begin{itemize}
+\item Chi-squared: discrete attributes
+\item Consistency: continous and discrete attributes
+\item Correlation: continous attributes and continous classes
+\item Entropy: discrete attributes and continous classes
+\end{itemize}
+\end{block}
+\end{frame}
 
-\subsection{Feature Extraction}
+\begin{frame}[fragile]
+  \frametitle{Consistency Fileter}
 
-\subsection{Principal Component Analysis}
-
-
-\begin{frame}
-  \frametitle{PCA}
-
-%% begin.rcode, eval=FALSE
+%% begin.rcode consistency, eval=F
 %
-% help(princomp)
-%
-% help(prcomp)
+% consistency(formula, data)
 %
 %% end.rcode
 \end{frame}
 
 
-\subsection{Other Feature Learning Techniques}
+
+\subsection{Summary}
+
 
 \section{Future}
-
 
 \begin{frame}
   \frametitle{Future Reading}
@@ -629,6 +935,20 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 \item Introduction to Machine Learning
 \item CRAN Task View: Machine Learning \& Statistical Learning: http://cran.r-project.org/web/views/MachineLearning.html
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Advanced Courses}
+\begin{block}{Advaced Courses}
+\begin{itemize}
+\item Machine learning for Big Biological Data
+\item Implementing high performance machine learning algorithms
+\item Deep learning for bioinformatics
+\item Data integration
+\item Network based machine learning
+\item \ldots
+\end{itemize}
+\end{block}
 \end{frame}
 
 
