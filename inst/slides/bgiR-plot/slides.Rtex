@@ -89,7 +89,7 @@
 \end{frame}
 
 \subsection{讲师}
-\begin{frame}[t]\frametitle{陈钢，华大基因研究员}
+\begin{frame}[t]\frametitle{陈钢，华大基因研究员,香港中文大学兼职助理教授}
 \begin{block}{教育背景}
 \begin{itemize}
 \item 中南大学计算机专业博士，2008.9 -- 2012.6
@@ -116,8 +116,9 @@
 \begin{block}{授课}
 \begin{itemize}
 	\item 香港中文大学生物信息学硕士课程讲师
-	\item 华大基因研究院创新班R语言基础课程
+	\item 华大基因研究院创新班R语言基础课程、国际生物信息培训机器学习课程
         \item Supstat统计咨询公司专家
+        \item 第二军医大学、山东大学等R语言培训课程
 	\item \ldots \ldots
 \end{itemize}
 \end{block}
@@ -126,6 +127,11 @@
 
 
 \section{R语言简介和系统安装}
+
+
+\begin{frame}
+\centerline{\includegraphics[height=.9\textheight]{bigdata.png}}
+\end{frame}
 
 \begin{frame}[t]\frametitle{R语言是什么？}
 \begin{block}{R}
@@ -193,7 +199,7 @@ R is a free software environment for statistical computing and graphics.
 \subsection{历史和现状}
 \begin{frame}[t]\frametitle{R语言的历史}
 \begin{itemize}
-	\item 1997年4月1日，0.16，奥克兰大学的Ihaka和Gentleman发布了第一版本的R
+\item 1997年4月1日，0.16，奥克兰大学的Ihaka和Gentleman发布了第一版本的R
 \item 1997年4月23日，0.49，CRAN网站发布，提供12个R的扩展包
 \item 1997年12月5日，0.60，R成文GNU项目的一部分
 \item 2000年2月29日，1.0，第一个可用于生产环境的版本发布
@@ -277,7 +283,7 @@ bgiR是专为华大科技服务提供的R语言相关培训而开发的R语言�
 	\item Emacs + ESS(演示)
 	\item VIM + R-plugin
 	\item RStudio （演示）
-        \item RStudio Server: http://115.28.41.214:8787/，用户名：user，密码：bgi-2013
+        \item RStudio Server: 云端的R
 	\item \ldots \ldots
 \end{itemize}
 \end{block}
@@ -551,6 +557,17 @@ bgiR是专为华大科技服务提供的R语言相关培训而开发的R语言�
 \end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{dotchart}
+
+%% begin.rcode dotchart, out.height='.5\\textheight',  out.width='.5\\textheight', echo=T, fig.align='center'
+%
+% x = rnorm(30)
+% dotchart(x, groups = rep(1:3,10))
+%
+%% end.rcode
+\end{frame}
+
 \subsection{时间序列}
 
 
@@ -767,14 +784,19 @@ Authors describing chemical structures are requested to use the Nature Chemical 
 \includegraphics[width=\textwidth]{final-artwork.pdf}
 \end{frame}
 
-%\subsection{实例}
-%\begin{frame}
-%\frametitle{实例}
-%如何让这个散点图满足Nature的要求？
+\subsection{实例}
+\begin{frame}
+\frametitle{实例}
+如何让这个散点图满足Nature的要求？
 
-%\end{frame}
-
-
+%% begin.rcode case, echo=F
+%
+% d1 = rnorm(1000)*10
+% d2 = d1+rnorm(1000)
+% plot(d1, d2)
+%
+%% end.rcode
+\end{frame}
 
 \section{R语言绘图实战}
 \subsection{3维柱状图}

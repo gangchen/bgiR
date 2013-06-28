@@ -52,7 +52,7 @@
 %
 %%end.rcode
 
-
+d
 \begin{document}
 \begin{frame}
 \titlepage
@@ -222,7 +222,7 @@ Biological Knowledge
 \begin{block}{Machine Learning}
   Machine learning provides the technical basis of data mining.
 
----Data Mining: Practical Machine Learning Tools and Techniques
+---\textit{Data Mining: Practical Machine Learning Tools and Techniques}
 \end{block}
 \end{frame}
 
@@ -305,11 +305,25 @@ Cluster analysis or clustering is the task of grouping a set of objects in such 
 ---Wikipedia  
 \end{block}
 
-\begin{block}{Applications}
+\begin{block}{Applications of Clustering}
 \begin{itemize}
-\item for understanding: biology, information retrieval, climate, business \ldots
-\item for utility: summarization, compression, efficiently finding nearest neighbors \ldots
-\end{itemize}  
+	\item Clustering for Understanding
+		\begin{itemize}
+			\item Biology
+			\item Information Retrieval
+			\item Climate
+			\item Psychology and medicine
+			\item business
+			\item \ldots \ldots
+		\end{itemize}
+	\item Clustering for Utility
+		\begin{itemize}
+			\item Summarization
+			\item compression
+			\item Efficiently finding nearest neighbors
+			\item \ldots \ldots
+		\end{itemize}
+\end{itemize}
 \end{block}
 \end{frame}
 
@@ -328,17 +342,19 @@ Cluster analysis or clustering is the task of grouping a set of objects in such 
 
 \subsection{Unspervised Learning in Bioinformatics}
 
-\begin{frame}[fragile]
-  \frametitle{Applications of Clustering}
 
-\begin{block}{Applications}
-  \begin{itemize}
-  \item Overview of dataset
-  \item Discovery of unknown subtypes of diseases
-  \item Relationship among features and individuals
-  \item \ldots \ldots
-  \end{itemize}
-\end{block}
+\begin{frame}[t]
+    
+\begin{itemize}
+	\item Discovery of tumor subtypes by clustering gene expression, CNV, miRNA or integrated data.
+	\item Clonal evolution analysis of tumor
+	\item Mutation spectrum clustering
+	\item Pathway or functional annotation based clustering
+	\item Graph clustering for identification of protein functional module or protein complex
+	\item Clustering metagenomic sequences
+	\item Metabolomics
+	\item \ldots \ldots
+\end{itemize}
 
 \end{frame}
 
@@ -729,6 +745,7 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 %% begin.rcode, eval=FALSE, tidy=FALSE
 %
 %   C5.0Control(subset = TRUE, 
+
 %             bands = 0, 
 %             winnow = FALSE, 
 %             noGlobalPruning = FALSE, 
@@ -743,9 +760,10 @@ The decision tree is initially grown to its maximum size, then perform pruning.
 %% end.rcode
 \end{frame}
 
+
+
 \begin{frame}[fragile]
   \frametitle{Decision Tree on Gene Expression Data}
-
 %% begin.rcode
 %
 %# load BGI package for R training
@@ -912,19 +930,27 @@ Feature selection is the process of selecting a subset of relevant features for 
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Consistency Fileter}
-
-%% begin.rcode consistency, eval=F
-%
-% consistency(formula, data)
-%
-%% end.rcode
+  \frametitle{Example}
+\begin{block}{Examples}
+\begin{itemize}
+\item SD filter for clustering
+\item Correlation filter for Classification
+\item Decision tree based feature selection
+\item SVM for feature selection
+\end{itemize}
+\end{block}
 \end{frame}
 
-
-
-\subsection{Summary}
-
+\begin{frame}[fragile]
+  \frametitle{Summary}
+\begin{block}{Summary}
+\begin{itemize}
+\item Feature selection is helful to improve performance of classifier
+\item Feature selection can be used to identify biomarkers
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
 
 \section{Future}
 
