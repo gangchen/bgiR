@@ -133,6 +133,17 @@
 \centerline{\includegraphics[height=.9\textheight]{bigdata.png}}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{TAMING THE BIG DATA TIDAL WAVE}
+\begin{block}{R}
+  Perhaps the biggest advantage of R is that as soon as a new modeling or analysis approach is developed, someone will get it into R. \ldots
+
+
+\end{block}
+  
+\end{frame}
+
 \begin{frame}[t]\frametitle{R语言是什么？}
 \begin{block}{R}
 R是一个用于统计计算和图形的自由软件环境。
